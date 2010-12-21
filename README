@@ -1,0 +1,6 @@
+Extention implements components with like-db api:
+* connection
+* query
+* crtiteria
+* result
+* match
