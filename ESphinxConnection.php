@@ -3,12 +3,8 @@
  * This file contains filesource of class ESphinxConnection
  */
 
-# require required file api
-if(!class_exists("SphinxClient", false))
-	require_once dirname(__FILE__).DIRECTORY_SEPARATOR."sphinxapi.php";
-
 /**
- * Class ESphinxConnection implements
+ * Class ESphinxConnection
  *
  * @author mitallast <mitallast@gmail.com>
  * @version 0.1
@@ -28,8 +24,7 @@ class ESphinxConnection extends CApplicationComponent
 	 */
 	private $isConnected = false;
 	/**
-	 * Inicialize component. Create new SphinxClient instance
-	 *
+	 * Constructor initialise component variables. 
 	 */
 	public function __construct()
 	{
@@ -39,18 +34,18 @@ class ESphinxConnection extends CApplicationComponent
 	/**
 	 * Set Sphinx server connection parameters.
 	 *
-	 * @param array $params list of params, where first item is host, second is port
+	 * @param array $parameters list of params, where first item is host, second is port
 	 * @example array("localhost", 3386)
 	 * @link http://www.sphinxsearch.com/docs/manual-0.9.9.html#api-func-setserver
 	 */
-	public function setServer(array $params = array())
+	public function setServer(array $parameters = array())
 	{
-		if(!isset ($params[0]))
-			$params[0] = 'localhost';
-		if(!isset ($params[1]))
-			$params[1] = 3386;
+		if(!isset ($parameters[0]))
+			$parameters[0] = 'localhost';
+		if(!isset ($parameters[1]))
+			$parameters[1] = 3386;
 
-		$this->sphinxClient->SetServer($params[0],$params[1]);
+		$this->sphinxClient->SetServer($parameters[0],$parameters[1]);
 	}
 	/**
 	 * Open Sphinx persistent connection.
@@ -212,7 +207,7 @@ class ESphinxConnection extends CApplicationComponent
 	 */
 
 	/**
-	 * Exequte single query.
+	 * Execute single query.
 	 * @example
 	 * <code>
 	 *   $result = $connection->execute(new ESphinxQuery("hello world search"));
