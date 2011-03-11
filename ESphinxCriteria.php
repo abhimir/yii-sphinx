@@ -241,7 +241,7 @@ class ESphinxCriteria extends CComponent
 	/**
 	 * @var string $sort sort expression sql-like
 	 */
-	public $sort;
+	public $order;
 	/**
 	 * Sphinx sort mode.
 	 * 
@@ -626,9 +626,9 @@ class ESphinxCriteria extends CComponent
 	 * @param string $mode "asc" or "desc"
 	 * @return void
 	 */
-	public function setSort($attributeName, $mode = 'asc')
+	public function setOrder($attributeName, $mode = 'asc')
 	{
 		$this->sortMode = self::SORT_EXTENDED;
-		$this->sort = $attributeName ." ".$mode;
+		$this->order = $attributeName ." ".$mode;
 	}
 }
